@@ -1,0 +1,38 @@
+Normal Permission : 
+normal file     : rw-r--r--
+executable file : rwxr-xr-x
+directory      : rwx-r-xr-x
+
+Special Permission :   s :    bit 
+
+setUID :   u+s   : rwsr-xr-x  : executable file : e.g /usr/bin/passwd        
+setGID  :  g+s   : rwxr-sr-x  : directory       : 
+stickybit: o+t   : rwxrwxrwt  : directory       : e.g /tmp   :  
+
+
+
+steuid :      all  users can run the program as  a owner 
+
+sticky bit : all users  can put the files in to /tmp  but  can not harm each other files.
+
+setgid  :  same group  will be  applicable to incoming  files according to parent folder .
+
+
+rohit$useradd  fox 
+rohit$passwd 
+
+
+
+#chmod u+s /usr/sbin/useradd
+-rwsr-xr-x. 1 root root 224K Jun  7  2019 /usr/sbin/useradd
+
+root user update > /etc/passwd 
+root user update > /etc/shadow 
+root user update > /etc/group
+
+definition : setuid means other user can run that executable program or file as a owner
+
+Q1)  how  normal user set the password ? if  /etc/shadow have no permission ?
+Ans :    setuid  already implemented on /usr/bin/passwd  file 
+
+-rwsr-xr-x. 1 root root 34K Aug 12  2018 /usr/bin/passwd
