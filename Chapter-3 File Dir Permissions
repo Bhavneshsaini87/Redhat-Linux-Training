@@ -1,0 +1,65 @@
+#touch file
+#ls-l file   or  #ls -lrth file or #ll  file  or  #ls -lrth file   or  #ls -la  hiddenfile
+
+regular  permission set       linkcount      owner   group   size      date      time      name of file/dir
+-        rw-   r--    r--      1             root    root     0        Feb  6    21:48        normal file
+        owner  group  others 
+
+
+read    = 4    r
+write   = 2    w
+execute = 1    x
+
+normal file     : used to update the content only 
+executable file : binary program files  run :   -rwxr-xr-x. 1 root root 51K Jan 11  2019 /usr/bin/cat
+Note : we can make a  normal file as  executable file by writing some program in a file and provide execute permissons.
+                                                                 
+                                  owner  group   others 
+Initial permission regular file :  6       6       6                rw- rw- rw-
+                      umask    -:  0       2       2
+=====================================================================================
+deafult permission of file      :  6      4       4                 rw- r-- r--
+
+
+
+
+Initial permission of directory :  7       7       7                rwx rwx rwx 
+                      umask    -:  0       2       2
+==================================================================================
+default permission  of direcroty   7       5       5                rwx r-x r-x
+
+
+Q)what is umask ? 
+It affect the intial permission of file & directory.
+
+location of umask ? cat /etc/profile 
+ 
+if [ $UID -gt 199 ] && [ "id -gn" = "id -un" ]; then
+    umask 002
+else
+    umask 022
+
+Q).How to check umask ?
+#umask 
+022
+
+Q)How to modify  permissions alphabetic ? & Numerically 
+chmod o-w /file    or  chmod 644 /file
+chown owner:group file/dir
+chgrp group file/dir
+
+
+
+practical between normal users ownership  changed by normal user :
+A normal user in Linux cannot change the owner of a file they own, even if they are the current owner; only a root user (with elevated privileges) can use the chown command to modify file ownership. 
+Key points about file ownership in Linux:
+chown command:
+This command is used to change the owner of a file, but it requires root privileges to modify the owner of any file.
+User limitations:
+While a normal user can view file permissions and change group ownership (within the groups they belong to), they cannot directly change the owner of a file.
+
+
+
+
+
+
