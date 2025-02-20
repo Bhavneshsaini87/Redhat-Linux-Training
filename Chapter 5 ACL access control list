@@ -1,0 +1,48 @@
+ACL- access  control list 
+ACL : provide permission to particular  user or group on file or dir.
+
+setfacl - set file access control lists
+getfacl - get file access control lists
+
+
+How to setacl ?
+setfacl -m u:rat:rwx   /tution
+setfacl -m g:group:rwx /tution
+
+
+Recursively :
+setfacl -Rm u:rat:rwx   /tution
+setfacl -Rm g:group:rwx /tution
+
+How to check acl implemented in permission set?
+There is a plus sign at the  end of permission set .
+ls -lrth file 
+-rw-r--r--+
+drwxr-xr-x+
+
+How to check the ACL :
+getfacl /file   
+
+How to remove the ACL for group & user :
+setfacl -x g:dba /tution 
+setfacl -x u:username /folder
+
+
+How to remove the ACL recursively:
+setfacl -x g:dba /tution 
+setfacl -x u:username /folder
+
+
+still  +  sign is there so want  to remove acl  completely choose option -b
+ls -lrth file/dir
+rw-r--r--+
+
+How to remove all ACL ?
+setfacl -b /file or dir
+
+
+
+
+
+
+
